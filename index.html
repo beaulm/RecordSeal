@@ -54,6 +54,7 @@
 				margin-top: 1.78em; /* 32px */
 			}
 			input[type="input"],
+			input[type="date"],
 			input[type="email"],
 			input[type="tel"],
 			textarea {
@@ -96,8 +97,8 @@
 				color: #fff;
 				cursor: pointer;
 				font-size: 95%;
-				height: 27px;
-				width: 77px;
+				height: 1.59em; /* 27px */
+				width: 4.53em; /* 77px */
 			}
 			#oneStar {
 				margin-left: -1.6em;
@@ -117,6 +118,26 @@
 				}
 				#bodyWrapper {
 					margin: 0 1.4em;
+				}
+				h1 {
+					line-height: 1.1;
+					margin-bottom: .3em;
+				}
+				#sealForm .inlineLabel,
+				#sealForm .inlineField  {
+					display: inline;
+					float: none;
+					height: auto;
+					width: 100%;
+				}
+				input[type="checkbox"],
+				#oneStar,
+				#twoStars {
+					margin: auto;
+					margin-right: .357em; /* 5px */
+				}
+				#submit {
+					font-size: 76%;
 				}
 			}
 		</style>
@@ -140,11 +161,11 @@
 			<h2 class="green">The TeamChild Juvenile Record Sealing Clinic may be able to help you seal your record for free</h2>
 			<form id="sealForm" name="sealForm" method="post">
 				<label id="nameLabel" for="name">What is your legal name?</label>
-				<input id="name" name="name" type="input" autofocus />
+				<input id="name" name="name" type="input" autofocus required />
 				<label id="otherNamesLabel" for="otherNames">Other name's that you have used in the past?</label>
 				<input id="otherNames" name="otherNames" type="input" />
 				<label id="dobLabel" for="dob">Birth Date?</label>
-				<input id="dob" name="dob" type="input" />
+				<input id="dob" name="dob" type="date" required />
 				<div id="contactInfo">Contact information</div>
 				<label class="inlineLabel" for="email">Email address</label> <input id="email" class="inlineField" name="email" maxlength="320" type="email" />
 				<br />
