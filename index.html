@@ -22,6 +22,10 @@
 				font-size: small; /* 13px */
 				line-height: 1.7; /* 22px */
 				margin: auto;
+				max-width: 72.23em; /* 939px */
+				padding-left: 44px;
+			}
+			#bodyWrapper {
 				max-width: 68.85em; /* 895px */
 			}
 			h1 {
@@ -73,7 +77,7 @@
 			#sealForm .inlineField {
 				display: block;
 				float: left;
-				height: 1.43em; /* 19px */
+				height: 1em;
 				width: 83%;
 			}
 			#twoYears {
@@ -111,10 +115,20 @@
 			#moreInfo {
 				margin-bottom: 3em;
 			}
+			@media screen and (max-width: 965px) {
+				#sealForm .inlineLabel,
+				#sealForm .inlineField  {
+					display: inline;
+					float: none;
+					height: auto;
+					width: 100%;
+				}
+			}
 			@media screen and (max-width: 480px) {
 				body {
 					font-size: 115%;
 					max-width: none;
+					padding: 0;
 				}
 				#bodyWrapper {
 					margin: 0 1.4em;
@@ -122,13 +136,6 @@
 				h1 {
 					line-height: 1.1;
 					margin-bottom: .3em;
-				}
-				#sealForm .inlineLabel,
-				#sealForm .inlineField  {
-					display: inline;
-					float: none;
-					height: auto;
-					width: 100%;
 				}
 				input[type="checkbox"],
 				#oneStar,
