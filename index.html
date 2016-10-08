@@ -80,6 +80,12 @@
 				height: 1em;
 				width: 83%;
 			}
+			#sealForm .subLabel {
+				margin-left: 2em;
+			}
+			.subContainer {
+				display: none;
+			}
 			#twoYears {
 				margin-top: 2.93em; /* 39px */
 			}
@@ -176,10 +182,17 @@
 				<div id="contactInfo">Contact information</div>
 				<label class="inlineLabel" for="email">Email address</label> <input id="email" class="inlineField" name="email" maxlength="320" type="email" />
 				<br />
+				<div class="subContainer emailSub"><label class="subLabel" for="emailSafe">Is your email address private?</label> <input type="radio" name="emailSafe" value="Yes" />Yes <input type="radio" name="emailSafe" value="No" /> No</div>
 				<label class="inlineLabel" for="phone">Phone number</label> <input id="phone" class="inlineField" name="phone" maxlength="23" type="tel" />
 				<br />
+				<div class="subContainer phoneSub"><label class="subLabel" for="callSafe">Is it safe to call you?</label> <input type="radio" name="callSafe" value="Yes" />Yes <input type="radio" name="callSafe" value="No" /> No
+				<br />
+				<label class="subLabel" for="textSafe">Is it safe to text you?</label> <input type="radio" name="textSafe" value="Yes" />Yes <input type="radio" name="textSafe" value="No" /> No
+				<br />
+				<label class="subLabel" for="voicemailSafe">Is your voicemail private?</label> <input type="radio" name="voicemailSafe" value="Yes" />Yes <input type="radio" name="voicemailSafe" value="No" /> No</div>
 				<label class="inlineLabel" for="address">Mailing address</label> <input id="address" class="inlineField" name="address" type="input" />
 				<br />
+				<div class="subContainer addressSub"><label class="subLabel" for="mailSafe">Is it safe to send you mail?</label> <input type="radio" name="mailSafe" value="Yes" />Yes <input type="radio" name="mailSafe" value="No" /> No</div>
 				<input type="checkbox" id="twoYears" name="twoYears" value="twoYears"> <label for="twoYears">Has it been at least 2 years since you were last released from confinement for a juvenile misdemeanor, class C felony, class B felony, completed diversion or a deferred disposition?</label>
 				<br />
 				<div id="or" class="green">OR</div>
@@ -214,6 +227,23 @@
 					alert('Please supply some form of contact information');
 				}
 				return contactSupplied;
+			}
+
+			//Everytime a key is pressed
+			window.onkeypress = function(event) {
+				//Check each of the contact fields
+				document.querySelectorAll('#email, #phone, #address').forEach(function(el) {
+					//If it contains text
+					if(el.value !== '') {
+						//Show the associated sub fields
+						document.querySelector('.'+el.id+'Sub').style.display = 'block';
+					}
+					//Otherwise
+					else {
+						//Hide the associated sub fields
+						document.querySelector('.'+el.id+'Sub').style.display = 'none';
+					}
+				});
 			}
 		</script>
 	</body>
