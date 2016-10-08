@@ -17,36 +17,110 @@
 			}
 			body {
 				background-color: #FFF;
-				color: #2D2E2E;
-				font-family: "Trebuchet MS", Geneva, Tahoma, Arial, sans-serif;
-				font-size: small;
-				line-height: 1.8;
+				color: #000;
+				font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+				font-size: small; /* 13px */
+				line-height: 1.7; /* 22px */
 				margin: auto;
-				max-width: 46.15em
+				max-width: 68.85em; /* 895px */
 			}
-			img {
-				height: auto;
-				max-width: 100%
+			h1 {
+				font-size: 277%; /* 36px */
+				margin-bottom: 0;
+			}
+			h2 {
+				font-size: 185%; /* 24px */
+				line-height: 1.33; /* 32px */
+				margin-top: 0;
+			}
+			.green {
+				color: #939905;
+				font-weight: bold;
+			}
+			#sealForm {
+				font-size: 138%; /* 18px */
+			}
+			#nameLabel {
+				display: block;
+				margin-top: 2em; /* 36px */
+			}
+			#otherNamesLabel,
+			#dobLabel,
+			#contactInfo,
+			#ifSo,
+			#submit,
+			#moreInfo {
+				display: block;
+				margin-top: 1.78em; /* 32px */
+			}
+			input[type="input"],
+			input[type="email"],
+			input[type="tel"],
+			textarea {
+				background: transparent;
+				border: none;
+				border-bottom: 1px solid #000000;
+				font-size: 100%; /* 18px */
+				outline: none;
+				width: 100%;
+			}
+			#sealForm .inlineLabel {
+				display: block;
+				float: left;
+				width: 16%;
+			}
+			#sealForm .inlineField {
+				display: block;
+				float: left;
+				height: 1.43em; /* 19px */
+				width: 83%;
+			}
+			#twoYears {
+				margin-top: 2.93em; /* 39px */
+			}
+			#twoStars {
+				margin-left: -2.18em; /* -29px */
+				margin-right: .75em; /* 10px */
+			}
+			input[type="checkbox"] {
+				margin-left: -2.93em; /* -39px */
+				margin-right: 1.5em; /* 20px */
+				transform: scale(1.5);
+			}
+			#or {
+				line-height: 2;
+			}
+			#submit {
+				background-color: #005581;
+				border: 0;
+				color: #fff;
+				cursor: pointer;
+				font-size: 95%;
+				height: 27px;
+				width: 77px;
+			}
+			#oneStar {
+				margin-left: -1.6em;
+				margin-right: .7em;
+			}
+			a {
+				color: #005581;
+				font-weight: bold;
+			}
+			#moreInfo {
+				margin-bottom: 3em;
 			}
 			@media screen and (max-width: 480px) {
 				body {
 					font-size: 115%;
-					max-width: none
+					max-width: none;
 				}
 				#bodyWrapper {
-					margin: 0 1.4em
-				}
-				a {
-					color: #0085E7
-				}
-				h1 {
-					font-size: 187.5%;
-					line-height: 1.62;
-					margin-bottom: 0
+					margin: 0 1.4em;
 				}
 			}
 		</style>
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -58,14 +132,39 @@
 		  ga('require', 'displayfeatures');
 		  ga('send', 'pageview');
 		
-		</script>
+		</script> -->
 	</head>
 	<body>
 		<div id="bodyWrapper">
+			<h1>Are you eligible to seal your Juvenile Record?</h1>
+			<h2 class="green">The TeamChild Juvenile Record Sealing Clinic may be able to help you seal your record for free</h2>
 			<form id="sealForm" name="sealForm" method="post">
-				<input id="name" name="name" type="input" size="50" autofocus />
+				<label id="nameLabel" for="name">What is your legal name?</label>
+				<input id="name" name="name" type="input" autofocus />
+				<label id="otherNamesLabel" for="otherNames">Other name's that you have used in the past?</label>
+				<input id="otherNames" name="otherNames" type="input" />
+				<label id="dobLabel" for="dob">Birth Date?</label>
+				<input id="dob" name="dob" type="input" />
+				<div id="contactInfo">Contact information</div>
+				<label class="inlineLabel" for="email">Email address</label> <input id="email" class="inlineField" name="email" maxlength="320" type="email" />
 				<br />
+				<label class="inlineLabel" for="phone">Phone number</label> <input id="phone" class="inlineField" name="phone" maxlength="23" type="tel" />
+				<br />
+				<label class="inlineLabel" for="address">Mailing address</label> <input id="address" class="inlineField" name="address" type="input" />
+				<br />
+				<input type="checkbox" id="twoYears" name="twoYears" value="twoYears"> <label for="twoYears">Has it been at least 2 years since you were last released from confinement for a juvenile misdemeanor, class C felony, class B felony, completed diversion or a deferred disposition?</label>
+				<br />
+				<div id="or" class="green">OR</div>
+				<input type="checkbox" id="fiveYears" name="fiveYears" value="fiveYears"> <label for="fiveYears">Has it been at least 5 years since you were last released from confinement for a class A felony?</label>
+				<br />
+				<div id="ifSo" class="green">If so, you may be eligible as long as you have remained crime-free since your last conviction and have paid all of your restitution.</div>
 				<input id="submit" name="submit" type="submit" value="Submit" />
+				<br />
+				<span id="oneStar">*</span> <span>Most sex offenses are now eligible to be sealed. Contact us for more information.</span>
+				<br />
+				<span id="twoStars">**</span> <span>If you are helping someone seal their record and they cannot be present at the clinic, we may be able to assist you but you will need to <a href="tel:+12063222444" title="Call us at (206) 322-2444">call us</a> before you come to the clinic.</span>
+				<br />
+				<div id="moreInfo">For more information on Juvenile <a href="http://www.teamchild.org/docs/uploads/Starter_Kit_with_Attachment_Oct_2012.pdf" title="A list of offenses and their categorization are on pages 17-21 (pdf #6-12)">felony classifications</a>.</div>
 			</form>
 		</div>
 	</body>
