@@ -166,7 +166,7 @@
 		<div id="bodyWrapper">
 			<h1>Are you eligible to seal your Juvenile Record?</h1>
 			<h2 class="green">The TeamChild Juvenile Record Sealing Clinic may be able to help you seal your record for free</h2>
-			<form id="sealForm" name="sealForm" method="post">
+			<form id="sealForm" name="sealForm" method="post" onsubmit="return checkContact()">
 				<label id="nameLabel" for="name">What is your legal name?</label>
 				<input id="name" name="name" type="input" autofocus required />
 				<label id="otherNamesLabel" for="otherNames">Other name's that you have used in the past?</label>
@@ -195,5 +195,26 @@
 				<div id="moreInfo">For more information on Juvenile <a href="http://www.teamchild.org/docs/uploads/Starter_Kit_with_Attachment_Oct_2012.pdf" title="A list of offenses and their categorization are on pages 17-21 (pdf #6-12)">felony classifications</a>.</div>
 			</form>
 		</div>
+		<script type="text/javascript">
+			//This function is run when the form is submitted
+			function checkContact() {
+				//Default to preventing the form from submitting
+				var contactSupplied = false;
+				//Go through each of the contact fields
+				document.querySelectorAll('#email, #phone, #address').forEach(function(el) {
+					//If the current element has a value
+					if(el.value !== '') {
+						//Allow the form to be submitted
+						contactSupplied = true;
+					}
+				});
+				//If the form isn't going to be submitted
+				if(!contactSupplied) {
+					//Alert the user of this
+					alert('Please supply some form of contact information');
+				}
+				return contactSupplied;
+			}
+		</script>
 	</body>
 </html>
